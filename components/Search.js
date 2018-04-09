@@ -9,6 +9,14 @@ Search = React.createClass({
         this.setState({
             searchingText: searchingText
         });
+        if (searchingText.length > 2) {
+            this.props.onSearch(searchingText);
+        }
+    },
+    handleKeyUp: function(event) {
+        if (event.keyCode === 13) {
+            this.props.onSearch(this.state.searchingText);
+        }
     },
     render: function() {
         var styles = {
@@ -17,11 +25,12 @@ Search = React.createClass({
             maxWidht: '350px'
         };
         return <input
-                type='text'
-                onChange={this.handleChange}
-                placeholder='Enter searched phrase here'
-                style={styles}
-                value={this.state.searchTerm}
-            />
+            type='text'
+            onChange={this.handleChange}
+            onKeyUp={this.handleKeyUp}
+            placeholder='Enter searched phrase here'
+            style={styles}
+            value={this.state.searchTerm}
+        />;
     },
 });
