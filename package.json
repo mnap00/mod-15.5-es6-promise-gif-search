@@ -1,0 +1,22 @@
+{
+  "name": "react-gif-search",
+  "version": "0.8.0",
+  "description": "React GIF Search",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server",
+    "watch": "browser-sync start --server --files '*.css' 'css/*.css' '*.html' '*.js' 'components/*.js'"
+  },
+  "keywords": [
+    "react",
+    "gif",
+    "search"
+  ],
+  "author": "mnap00",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "http-server": "^0.11.1"
+  }
+}
