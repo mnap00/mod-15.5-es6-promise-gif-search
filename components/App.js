@@ -5,7 +5,6 @@ App =  React.createClass({
         var url = GIPHY_API_URL +
             'v1/gifs/random?api_key=' + GIPHY_PUB_KEY +
             '&tag=' + searchingText;
-        console.log(url);
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url);
         xhr.onload = function() {
@@ -42,6 +41,7 @@ App =  React.createClass({
     render: function() {
         var styles = {
             margin: '0 auto',
+            maxWidth: '450px',
             textAlign: 'center',
             width: '90%'
         };
