@@ -7,14 +7,26 @@ var styles = {
 
 Gif = React.createClass({
     getUrl: function() {
-        return this.props.sourceUrl || GIPHY_LOADING_URL;
+//        return this.props.sourceUrl || GIPHY_LOADING_URL;
+        return new Promise(
+            function(resolve, reject) {
+                if (this.props.sourceUrl) {
+                    resolve(response);
+                } else {
+                    reject(error);
+                }
+            }
+        );
     },
     render: function() {
         var url = this.props.loading ? GIPHY_LOADING_URL : this.props.url;
         return (
             <div style={styles}>
                 <a
-                    href={this.getUrl()}
+                    href={this.getUrl()
+                        .then(response => this.props.sourceUrl)
+                        .catch(error => GIPHY_LOADING_URL)
+                    }
                     title='view this on giphy'
                     target='new'
                 >
